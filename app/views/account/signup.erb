@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Sign Up</h1>
+  <% if @errors %>
+  <p>Please correct the following errors:</p>
+  <ul>
+    <% @errors.each do |error| %>
+    <li style="color:red"><%= error %>
+    <% end %>
+  </ul>
+  <% end %>
+  <form action="/account/signup" method="post">
+    <input type="email" name="data[email]" placeholder="Email" value="<%= @email if @email %>">
+    <input type="password" name="data[password]" placeholder="Password">
+    <input type="password" name="data[password_confirmation]" placeholder="Password Confirmation">
+    <input type="submit" value="Submit">
+  </form>
+</div>

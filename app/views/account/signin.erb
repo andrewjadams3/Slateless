@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Login</h1>
+  <% if @error %>
+  <p style="color:red"><%= @error %></p>
+  <% end %>
+  <form action="/account/signin" method="post">
+    <input type="text" name="data[email]" placeholder="Email" value="<%= @email if @email %>">
+    <input type="password" name="data[password]" placeholder="Password">
+    <input type="submit" value="Submit">
+  </form>
+</div>

@@ -11,6 +11,9 @@ gem 'sinatra-contrib'
 # Use Thin for our web server
 gem 'thin'
 
+# bcrypt
+gem 'bcrypt', '~> 3.1.7'
+
 # Websockets
 gem "faye-websocket"
 
