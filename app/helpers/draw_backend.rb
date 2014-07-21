@@ -6,7 +6,7 @@ class DrawBackend
 
   def initialize(app)
     @app     = app
-    @clients = []
+    @clients = Hash.new { |hash, key| hash[key] = [] }
   end
 
   def call(env)
@@ -14,17 +14,18 @@ class DrawBackend
       ws = Faye::WebSocket.new(env, nil, {ping: KEEPALIVE_TIME })
       ws.on :open do |event|
         p [:open, ws.object_id]
-        @clients << ws
+        @clients[ws.url] << ws
       end
 
       ws.on :message do |event|
         # p [:message, event.data]
-        @clients.each {|client| client.send(event.data) }
+        @clients[ws.url].each {|client| client.send(event.data) }
       end
 
       ws.on :close do |event|
         p [:close, ws.object_id, event.code, event.reason]
-        @clients.delete(ws)
+        @clients[ws.url].delete(ws)
+        @clients.delete(ws.url) if @clients[ws.url].empty?
         ws = nil
       end
 

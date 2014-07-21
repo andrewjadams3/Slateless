@@ -1,7 +1,14 @@
 var scheme   = "ws://";
-var uri      = scheme + window.document.location.host + "/";
+var loc = window.location, new_uri;
+if (loc.protocol === "https:") {
+    uri = "wss:";
+} else {
+    uri = "ws:";
+}
+uri += "//" + loc.host + loc.pathname;
 var ws       = new WebSocket(uri);
 
+console.log(uri);
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
 tool.minDistance = 1;
