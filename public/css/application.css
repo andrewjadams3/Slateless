@@ -1,0 +1,43 @@
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  height: 64px;
+  width: 100%;
+  background: black;
+  color: white;
+  line-height:4em;
+}
+
+.top-nav h1 {
+  font-size: 32px;
+  display: inline;
+  margin-right: 60px;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.top-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  display: inline;
+}
+
+.nav li {
+  float: right;
+  display: inline;
+  margin-left: 30px;
+}
+
+.container {
+  margin-top: 64px;
+}

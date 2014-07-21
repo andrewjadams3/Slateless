@@ -1,0 +1,13 @@
+<div class="top-nav">
+  <h1><a href="/">Slateless</a></h1>
+  <ul class="nav">
+    <% if @current_user %>
+      <li><a href="/account/signout">Sign Out</a>
+      <li><a href="/account">Account</a></p>
+    <% else %>
+      <li><a href="/account/signin">Sign In</a>
+      <li><a href="/account/signup">Sign Up</a>
+    <% end %>
+  </ul>
+</div>
+
