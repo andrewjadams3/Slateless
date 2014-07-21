@@ -33,6 +33,11 @@ function onMouseDrag(event) {
   ws.send(JSON.stringify({ message: "draw", x: event.point["x"], y: event.point["y"] }));
 }
 
+function onMouseUp(event) {
+  // When the mouse is released, simplify it:
+  path.simplify();
+}
+
 function startPath(x, y) {
   // console.log("Drawing... X: " + x + " Y: " + y)
   path = new Path();
