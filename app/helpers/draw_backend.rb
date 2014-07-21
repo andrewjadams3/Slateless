@@ -19,7 +19,9 @@ class DrawBackend
 
       ws.on :message do |event|
         # p [:message, event.data]
-        @clients[ws.url].each {|client| client.send(event.data) }
+        @clients[ws.url].each do |client| 
+          client.send(event.data) if client != ws
+        end
       end
 
       ws.on :close do |event|
