@@ -1,17 +1,24 @@
-var scheme   = "ws://";
+var scheme = "ws://";
 var loc = window.location, new_uri;
 if (loc.protocol === "https:") {
-    uri = "wss:";
+  uri = "wss:";
 } else {
-    uri = "ws:";
+  uri = "ws:";
 }
 uri += "//" + loc.host + loc.pathname;
-var ws       = new WebSocket(uri);
+var ws = new WebSocket(uri);
 
-console.log(uri);
+//
+var circlePath = new Path.Circle(new Point(10, 10), 2.5);
+circlePath.strokeColor = 'black'
+
+function onMouseMove(event) {
+  circlePath.position = event.point;
+}
+
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
-tool.minDistance = 1;
+tool.minDistance = 2;
 
 var path;
 
@@ -21,6 +28,7 @@ function onMouseDown(event) {
 }
 
 function onMouseDrag(event) {
+  circlePath.position = event.point;
   drawPath(event.point["x"], event.point["y"]);
   ws.send(JSON.stringify({ message: "draw", x: event.point["x"], y: event.point["y"] }));
 }
@@ -29,6 +37,9 @@ function startPath(x, y) {
   // console.log("Drawing... X: " + x + " Y: " + y)
   path = new Path();
   path.strokeColor = '#00000';
+  path.strokeWidth = 5;
+  path.strokeCap = 'round';
+  path.strokeJoin = 'round';
   path.add(x, y)
 }
 
