@@ -1,4 +1,13 @@
 <div class="container">
-  <canvas id="draw" resize="true"></canvas>
-  <script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
+  <div id="users">
+  <% if @current_user %>
+    <%= @current_user.email %> | <a href="/account/signout">Sign Out</a> | <a href="/account">Account</a></p>
+  <% else %>
+    <a href="/account/signin">Sign In</a>
+    <a href="/account/signup">Sign Up</a>
+  <% end %>
+  </div>
+  <form action="/board" method="post">
+    <button type="submit">Create New Board</button>
+  </form>
 </div>
