@@ -1,7 +1,7 @@
 // Stroke style
 var style = {
   strokeColor: '#000000',
-  strokeWidth: 10,
+  strokeWidth: 5,
   strokeCap: 'round',
   strokeJoin: 'round'
 }
@@ -18,7 +18,7 @@ $(document).on('ready', function() {
   $("#purple").click(function() {style.strokeColor = '#663399'});
 
   // Width
-  $("#small").click(function() {style.strokeWidth: 2});
-  $("#medium").click(function() {style.strokeWidth: 5});
-  $("#large").click(function() {style.strokeWidth: 10});
+  $("#small").click(function() {style.strokeWidth = 2});
+  $("#medium").click(function() {style.strokeWidth = 5});
+  $("#large").click(function() {style.strokeWidth = 10});
 });

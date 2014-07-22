@@ -11,7 +11,7 @@ var ws = new WebSocket(uri);
 
 // Circle cursor in canvas
 var circlePath = new Path.Circle(new Point(10, 10), 2.5);
-circlePath.strokeColor = 'black'
+circlePath.strokeColor = 'black';
 
 function onMouseMove(event) {
   circlePath.position = event.point;
