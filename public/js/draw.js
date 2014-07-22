@@ -30,13 +30,26 @@ var uniqid = function() {
   return Date.now();
 }
 
+function OurPath(event, style, syndicate) {
+  this.uniqueId = Date.new();
+  this.syndicate = syndicate;
+  paths[this.uniqueId] = new Path();
+  this.startDrawing(event, style)
+}
+
+OurPath.prototype.send = function() {
+  this.syndicate.send()
+};
+
+OurPath.prototype.startDrawing(event, style) {
+  var path = paths[this.uniqueId]
+  path.style = style;
+  path.add(event.point["x"], event.point["y"]);
+}
+
 // Mouse events
 function onMouseDown(event) {
-  path_id = uniqid();
-  startPath(event.point["x"],
-            event.point["y"],
-            path_id,
-            style
+    var ourPath = new OurPath(event, style)
   );
   ws.send(JSON.stringify({ message: "start",
                            x: event.point["x"],
