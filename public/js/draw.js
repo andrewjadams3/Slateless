@@ -21,53 +21,77 @@ function onMouseMove(event) {
 // before firing the next onMouseDrag event:
 tool.minDistance = 1;
 
-var path; // Set the path
+//Store draw paths
+var paths = {}; // Set the path
+var path_id;
+
+//Create a unique path id
+var uniqid = function() {
+  return Date.now();
+}
 
 // Mouse events
 function onMouseDown(event) {
-  startPath(event.point["x"], event.point["y"], style);
-  ws.send(JSON.stringify({ message: "start", x: event.point["x"], y: event.point["y"], style: style }));
+  path_id = uniqid();
+  startPath(event.point["x"],
+            event.point["y"],
+            path_id,
+            style
+  );
+  ws.send(JSON.stringify({ message: "start",
+                           x: event.point["x"],
+                           y: event.point["y"],
+                           id: path_id,
+                           style: style 
+  }));
 }
 
 function onMouseDrag(event) {
   circlePath.position = event.point;
-  drawPath(event.point["x"], event.point["y"]);
-  ws.send(JSON.stringify({ message: "draw", x: event.point["x"], y: event.point["y"] }));
+  drawPath(event.point["x"], 
+           event.point["y"],
+           path_id
+  );
+  ws.send(JSON.stringify({ message: "draw", 
+                           x: event.point["x"],
+                           y: event.point["y"],
+                           id: path_id
+  }));
 }
 
 function onMouseUp(event) {
   // When the mouse is released, simplify the path:
-  simplify();
-  ws.send(JSON.stringify({ message: "simplify" }));
+  simplify(path_id);
+  ws.send(JSON.stringify({ message: "simplify", id: path_id }));
 }
 
 
 // Drawing functions
-function startPath(x, y, line_style) {
-  path = new Path();
-  path.style = line_style;
-  path.add(x, y)
+function startPath(x, y, id, line_style) {
+  paths[id] = new Path();
+  paths[id].style = line_style;
+  paths[id].add(x, y)
 }
 
-function drawPath(x, y) {
-  path.add(x, y)
+function drawPath(x, y, id) {
+  paths[id].add(x, y)
 }
 
-function simplify() {
-  path.simplify();
+function simplify(id) {
+  paths[id].simplify();
 }
 
 // Receiving socket messages
 ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
   if (data.message == "start") {
-    startPath(data.x, data.y, data.style);
+    startPath(data.x, data.y, data.id, data.style);
     paper.view.draw();
   } else if (data.message == "draw") {
-    drawPath(data.x, data.y);
+    drawPath(data.x, data.y, data.id);
     paper.view.draw();
   } else {
-    simplify();
+    simplify(data.id);
     paper.view.draw();
   }
 };
