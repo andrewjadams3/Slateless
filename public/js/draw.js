@@ -25,8 +25,8 @@ var path; // Set the path
 
 // Mouse events
 function onMouseDown(event) {
-  startPath(event.point["x"], event.point["y"]);
-  ws.send(JSON.stringify({ message: "start", x: event.point["x"], y: event.point["y"] }));
+  startPath(event.point["x"], event.point["y"], style);
+  ws.send(JSON.stringify({ message: "start", x: event.point["x"], y: event.point["y"], style: style }));
 }
 
 function onMouseDrag(event) {
@@ -43,9 +43,9 @@ function onMouseUp(event) {
 
 
 // Drawing functions
-function startPath(x, y) {
+function startPath(x, y, line_style) {
   path = new Path();
-  path.style = style;
+  path.style = line_style;
   path.add(x, y)
 }
 
@@ -61,7 +61,7 @@ function simplify() {
 ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
   if (data.message == "start") {
-    startPath(data.x, data.y);
+    startPath(data.x, data.y, data.style);
     paper.view.draw();
   } else if (data.message == "draw") {
     drawPath(data.x, data.y);
