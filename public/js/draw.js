@@ -10,12 +10,12 @@ uri += "//" + loc.host + loc.pathname;
 var ws = new WebSocket(uri);
 
 // Circle cursor in canvas
-var circlePath = new Path.Circle(new Point(10, 10), 2.5);
-circlePath.strokeColor = 'black';
+// var circlePath = new Path.Circle(new Point(10, 10), 2.5);
+// circlePath.strokeColor = 'black';
 
-function onMouseMove(event) {
-  circlePath.position = event.point;
-}
+// function onMouseMove(event) {
+//   circlePath.position = event.point;
+// }
 
 // The minimum distance the mouse has to drag
 // before firing the next onMouseDrag event:
@@ -47,7 +47,7 @@ function onMouseDown(event) {
 }
 
 function onMouseDrag(event) {
-  circlePath.position = event.point;
+  // circlePath.position = event.point;
   drawPath(event.point["x"], 
            event.point["y"],
            path_id

@@ -91,6 +91,6 @@ h1 {
 }
 
 canvas {
-  cursor: none;
+  /*cursor: none;*/
   background-image: url("../cream.png");
 }
