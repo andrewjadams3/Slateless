@@ -79,6 +79,7 @@ function drawPath(x, y, id) {
 
 function simplify(id) {
   paths[id].simplify();
+  console.log(paths[id])
 }
 
 // Receiving socket messages
@@ -86,12 +87,19 @@ ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
   if (data.message == "start") {
     startPath(data.x, data.y, data.id, data.style);
-    paper.view.draw();
-  } else if (data.message == "draw") {
+    view.draw();
+  } else if (data.message === "draw") {
     drawPath(data.x, data.y, data.id);
-    paper.view.draw();
-  } else {
+    view.draw();
+  } else if (data.message === "simplify") {
     simplify(data.id);
-    paper.view.draw();
+    view.draw();
+  } else if (data.message === "request") {
+    ws.send(JSON.stringify({ message: "redraw", paths: paths }));
+  } else if (data.message === "redraw") {
+      for (var path in data.paths) {
+        paths[path] = new Path(data.paths[path]["1"]);
+        view.draw();
+      }
   }
 };
