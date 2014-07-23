@@ -79,7 +79,6 @@ function drawPath(x, y, id) {
 
 function simplify(id) {
   paths[id].simplify();
-  console.log(paths[id])
 }
 
 // Receiving socket messages
