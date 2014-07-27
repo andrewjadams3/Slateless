@@ -10,11 +10,11 @@ uri += "//" + loc.host + loc.pathname;
 var ws = new WebSocket(uri);
 
 // Circle cursor in canvas
-var circlePath = new Path.Circle(new Point(10, 10), 2.5);
-circlePath.strokeColor = 'black';
+var cursor = new Path.Circle(new Point(-10, -10), 2.5);
+cursor.strokeColor = 'black';
 
 function onMouseMove(event) {
-  circlePath.position = event.point;
+  cursor.position = event.point;
 }
 
 // The minimum distance the mouse has to drag
@@ -30,26 +30,13 @@ var uniqid = function() {
   return Date.now();
 }
 
-function OurPath(event, style, syndicate) {
-  this.uniqueId = Date.new();
-  this.syndicate = syndicate;
-  paths[this.uniqueId] = new Path();
-  this.startDrawing(event, style)
-}
-
-OurPath.prototype.send = function() {
-  this.syndicate.send()
-};
-
-OurPath.prototype.startDrawing(event, style) {
-  var path = paths[this.uniqueId]
-  path.style = style;
-  path.add(event.point["x"], event.point["y"]);
-}
-
 // Mouse events
 function onMouseDown(event) {
-    var ourPath = new OurPath(event, style)
+  path_id = uniqid();
+  startPath(event.point["x"],
+            event.point["y"],
+            path_id,
+            style
   );
   ws.send(JSON.stringify({ message: "start",
                            x: event.point["x"],
@@ -60,7 +47,7 @@ function onMouseDown(event) {
 }
 
 function onMouseDrag(event) {
-  circlePath.position = event.point;
+  cursor.position = event.point;
   drawPath(event.point["x"], 
            event.point["y"],
            path_id
@@ -99,12 +86,23 @@ ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
   if (data.message == "start") {
     startPath(data.x, data.y, data.id, data.style);
-    paper.view.draw();
-  } else if (data.message == "draw") {
+    view.draw();
+  } else if (data.message === "draw") {
     drawPath(data.x, data.y, data.id);
-    paper.view.draw();
-  } else {
+    view.draw();
+  } else if (data.message === "simplify") {
     simplify(data.id);
-    paper.view.draw();
+    view.draw();
+  } else if (data.message === "request") {
+    ws.send(JSON.stringify({ message: "redraw", paths: paths }));
+  } else if (data.message === "redraw") {
+      for (var path in data.paths) {
+        paths[path] = new Path(data.paths[path]["1"]);
+        view.draw();
+      }
   }
 };
+
+$(document).on('ready', function() {
+  $("#black").click(function() {alert('hi!')});
+});
