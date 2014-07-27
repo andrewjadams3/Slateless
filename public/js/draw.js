@@ -32,8 +32,8 @@ OurPath.prototype.updatePoint = function(event) {
   this.y = event.point.y;
 }
 
-OurPath.prototype.sendMessage = function(message) {
-  ws.send(JSON.stringify({message: message, path: this}));
+OurPath.prototype.sendMessage = function(type) {
+  ws.send(JSON.stringify({type: type, path: this}));
 };
 
 // Mouse events
@@ -77,19 +77,25 @@ function simplify(path) {
 }
 
 // Receiving socket messages
-ws.onmessage = function(message) {
-  var data = JSON.parse(message.data);
-  if (data.message == "start") {
-    startPath(data.path);
-  } else if (data.message === "draw") {
-    drawPath(data.path);
-  } else if (data.message === "simplify") {
-    simplify(data.path);
-  } else if (data.message === "request") {
-    ws.send(JSON.stringify({ message: "redraw", paths: paths }));
-  } else if (data.message === "redraw") {
-      for (var path in data.paths) {
-        paths[path] = new Path(data.paths[path]["1"]);
+ws.onmessage = function(event) {
+  var message = JSON.parse(event.data);
+
+  switch(message.type) {
+    case "start":
+      startPath(message.path);
+      break;
+    case "draw":
+      drawPath(message.path);
+      break;
+    case "simplify":
+      simplify(message.path);
+      break;
+    case "request":
+      ws.send(JSON.stringify({ type: "redraw", paths: paths }));
+      break;
+    case "redraw":
+      for (var path in message.paths) {
+        paths[path] = new Path(message.paths[path]["1"]);
         view.draw();
       }
   }

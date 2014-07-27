@@ -16,7 +16,7 @@ class DrawBackend
       ws.on :open do |event|
         p [:open, ws.object_id]
         unless @clients[ws.url].empty?
-          @clients[ws.url][0].send(JSON.generate({message: "request"}))
+          @clients[ws.url][0].send(JSON.generate({type: "request"}))
         end
         @clients[ws.url] << ws
       end
