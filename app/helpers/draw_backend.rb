@@ -1,4 +1,5 @@
 require 'faye/websocket'
+require 'json'
 Faye::WebSocket.load_adapter('thin')
 
 class DrawBackend
@@ -14,6 +15,9 @@ class DrawBackend
       ws = Faye::WebSocket.new(env, nil, {ping: KEEPALIVE_TIME })
       ws.on :open do |event|
         p [:open, ws.object_id]
+        unless @clients[ws.url].empty?
+          @clients[ws.url][0].send(JSON.generate({message: "request"}))
+        end
         @clients[ws.url] << ws
       end
 
