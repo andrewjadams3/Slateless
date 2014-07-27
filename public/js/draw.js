@@ -9,90 +9,82 @@ if (loc.protocol === "https:") {
 uri += "//" + loc.host + loc.pathname;
 var ws = new WebSocket(uri);
 
-// Circle cursor in canvas
-var circlePath = new Path.Circle(new Point(10, 10), 2.5);
-circlePath.strokeColor = 'black';
-
-function onMouseMove(event) {
-  circlePath.position = event.point;
-}
-
-// The minimum distance the mouse has to drag
-// before firing the next onMouseDrag event:
+// Tool
 tool.minDistance = 1;
 
-//Store draw paths
-var paths = {}; // Set the path
-var path_id;
+// Cursor
+var cursor = new Path.Circle(new Point(-10, -10), 2.5);
+cursor.strokeColor = 'black';
 
-//Create a unique path id
-var uniqid = function() {
-  return Date.now();
+// Paths
+var paths = {};
+var currentPath;
+
+function OurPath(event) {
+  this.id = Date.now();
+  this.style = style;
+  this.x = event.point.x;
+  this.y = event.point.y;
 }
 
+OurPath.prototype.updatePoint = function(event) {
+  this.x = event.point.x;
+  this.y = event.point.y;
+}
+
+OurPath.prototype.sendMessage = function(message) {
+  ws.send(JSON.stringify({message: message, path: this}));
+};
+
 // Mouse events
+function onMouseMove(event) {
+  cursor.position = event.point;
+}
+
 function onMouseDown(event) {
-  path_id = uniqid();
-  startPath(event.point["x"],
-            event.point["y"],
-            path_id,
-            style
-  );
-  ws.send(JSON.stringify({ message: "start",
-                           x: event.point["x"],
-                           y: event.point["y"],
-                           id: path_id,
-                           style: style 
-  }));
+  currentPath = new OurPath(event);
+  currentPath.sendMessage("start");
+  startPath(currentPath);
 }
 
 function onMouseDrag(event) {
-  circlePath.position = event.point;
-  drawPath(event.point["x"], 
-           event.point["y"],
-           path_id
-  );
-  ws.send(JSON.stringify({ message: "draw", 
-                           x: event.point["x"],
-                           y: event.point["y"],
-                           id: path_id
-  }));
+  cursor.position = event.point;
+  currentPath.updatePoint(event);
+  currentPath.sendMessage("draw");
+  drawPath(currentPath);
 }
 
-function onMouseUp(event) {
-  // When the mouse is released, simplify the path:
-  simplify(path_id);
-  ws.send(JSON.stringify({ message: "simplify", id: path_id }));
+function onMouseUp() {
+  simplify(currentPath);
+  currentPath.sendMessage("simplify");
 }
-
 
 // Drawing functions
-function startPath(x, y, id, line_style) {
-  paths[id] = new Path();
-  paths[id].style = line_style;
-  paths[id].add(x, y)
+function startPath(path) {
+  paths[path.id] = new Path(new Point(path.x, path.y));
+  paths[path.id].style = path.style;
+  view.draw();
 }
 
-function drawPath(x, y, id) {
-  paths[id].add(x, y)
+function drawPath(path) {
+  paths[path.id].add(path.x, path.y);
+  view.draw();
 }
 
-function simplify(id) {
-  paths[id].simplify();
+function simplify(path) {
+  paths[path.id].simplify();
+  view.draw();
 }
 
 // Receiving socket messages
 ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
   if (data.message == "start") {
-    startPath(data.x, data.y, data.id, data.style);
-    view.draw();
+    startPath(data.path);
   } else if (data.message === "draw") {
-    drawPath(data.x, data.y, data.id);
-    view.draw();
+    drawPath(data.path);
   } else if (data.message === "simplify") {
-    simplify(data.id);
-    view.draw();
+    simplify(data.path);
   } else if (data.message === "request") {
     ws.send(JSON.stringify({ message: "redraw", paths: paths }));
   } else if (data.message === "redraw") {
