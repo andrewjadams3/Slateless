@@ -18,21 +18,22 @@ cursor.strokeColor = 'black';
 
 // Paths
 var paths = {};
+var path_order = [];
 var currentPath;
 
-function OurPath(event) {
+function PathAttributes(point) {
   this.id = Date.now();
   this.style = style;
-  this.x = event.point.x;
-  this.y = event.point.y;
+  this.x = point.x;
+  this.y = point.y;
 }
 
-OurPath.prototype.updatePoint = function(event) {
-  this.x = event.point.x;
-  this.y = event.point.y;
+PathAttributes.prototype.updatePoint = function(point) {
+  this.x = point.x;
+  this.y = point.y;
 }
 
-OurPath.prototype.sendMessage = function(type) {
+PathAttributes.prototype.sendMessage = function(type) {
   ws.send(JSON.stringify({type: type, path: this}));
 };
 
@@ -42,14 +43,14 @@ function onMouseMove(event) {
 }
 
 function onMouseDown(event) {
-  currentPath = new OurPath(event);
+  currentPath = new PathAttributes(event.point);
   currentPath.sendMessage("start");
   startPath(currentPath);
 }
 
 function onMouseDrag(event) {
   cursor.position = event.point;
-  currentPath.updatePoint(event);
+  currentPath.updatePoint(event.point);
   currentPath.sendMessage("draw");
   drawPath(currentPath);
 }
@@ -73,6 +74,7 @@ function drawPath(path) {
 
 function simplify(path) {
   paths[path.id].simplify();
+  path_order.push(path.id);
   view.draw();
 }
 
@@ -100,3 +102,18 @@ ws.onmessage = function(event) {
       }
   }
 };
+
+window.globals = {};
+globals.clearScreen = function() {
+  project.clear()
+  view.draw();
+}
+
+globals.undo = function() {
+  if (path_order.length > 0) {
+    last_drawn = path_order.pop();
+    paths[last_drawn].remove();
+    delete paths[last_drawn]
+    view.draw();
+  }
+}
