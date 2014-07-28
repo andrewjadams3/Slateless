@@ -103,13 +103,13 @@ ws.onmessage = function(event) {
   }
 };
 
-window.globals = {};
-globals.clearScreen = function() {
+window.DrawGlobals = {};
+DrawGlobals.clearScreen = function() {
   project.clear()
   view.draw();
 }
 
-globals.undo = function() {
+DrawGlobals.undo = function() {
   if (path_order.length > 0) {
     last_drawn = path_order.pop();
     paths[last_drawn].remove();
