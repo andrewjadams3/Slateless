@@ -9,18 +9,16 @@ if (loc.protocol === "https:") {
 uri += "//" + loc.host + loc.pathname;
 var ws = new WebSocket(uri);
 
+// Receiving socket messages
+ws.onmessage = function(event) {
+  var message = JSON.parse(event.data);
+  DrawApp[message.type](message.path);
+};
+
 // Tool
 tool.minDistance = 1;
 
-// Cursor
-var cursor = new Path.Circle(new Point(-10, -10), 2.5);
-cursor.strokeColor = 'black';
-
-// Paths
-var paths = {};
-var path_order = [];
-var currentPath;
-
+// Path Attributes
 function PathAttributes(point) {
   this.id = Date.now();
   this.style = style;
@@ -37,83 +35,82 @@ PathAttributes.prototype.sendMessage = function(type) {
   ws.send(JSON.stringify({type: type, path: this}));
 };
 
-// Mouse events
-function onMouseMove(event) {
-  cursor.position = event.point;
-}
+var DrawApp = {
+  paths: {},
+  path_order: [],
+  currentPathAttrs: null,
+  cursor: new Path.Circle(new Point(-10, -10), 2.5)
+};
 
-function onMouseDown(event) {
-  currentPath = new PathAttributes(event.point);
-  currentPath.sendMessage("start");
-  startPath(currentPath);
-}
-
-function onMouseDrag(event) {
-  cursor.position = event.point;
-  currentPath.updatePoint(event.point);
-  currentPath.sendMessage("draw");
-  drawPath(currentPath);
-}
-
-function onMouseUp() {
-  simplify(currentPath);
-  currentPath.sendMessage("simplify");
-}
+DrawApp.cursor.strokeColor = 'black';
 
 // Drawing functions
-function startPath(path) {
-  paths[path.id] = new Path(new Point(path.x, path.y));
-  paths[path.id].style = path.style;
+DrawApp.startPath = function(attr) {
+  this.paths[attr.id] = new Path(new Point(attr.x, attr.y));
+  this.paths[attr.id].style = attr.style;
   view.draw();
-}
+};
 
-function drawPath(path) {
-  paths[path.id].add(path.x, path.y);
+DrawApp.drawPath = function(attr) {
+  this.paths[attr.id].add(attr.x, attr.y);
   view.draw();
-}
+};
 
-function simplify(path) {
-  paths[path.id].simplify();
-  path_order.push(path.id);
+DrawApp.simplify = function(attr) {
+  this.paths[attr.id].simplify();
+  this.path_order.push(attr.id);
   view.draw();
-}
+};
 
-// Receiving socket messages
-ws.onmessage = function(event) {
-  var message = JSON.parse(event.data);
+DrawApp.request = function() {
+  ws.send(JSON.stringify({ type: "redraw", path: DrawApp.paths }));
+};
 
-  switch(message.type) {
-    case "start":
-      startPath(message.path);
-      break;
-    case "draw":
-      drawPath(message.path);
-      break;
-    case "simplify":
-      simplify(message.path);
-      break;
-    case "request":
-      ws.send(JSON.stringify({ type: "redraw", paths: paths }));
-      break;
-    case "redraw":
-      for (var path in message.paths) {
-        paths[path] = new Path(message.paths[path]["1"]);
-        view.draw();
-      }
+DrawApp.redraw = function(path_array) {
+  for (var id in path_array) {
+    DrawApp.paths[id] = new Path(path_array[id]["1"]);
+    view.draw();
   }
 };
 
+
+// Mouse events
+function onMouseMove(event) {
+  DrawApp.cursor.position = event.point;
+}
+
+function onMouseDown(event) {
+  DrawApp.currentPathAttrs = new PathAttributes(event.point);
+  DrawApp.currentPathAttrs.sendMessage("startPath");
+  DrawApp.startPath(DrawApp.currentPathAttrs);
+}
+
+function onMouseDrag(event) {
+  DrawApp.cursor.position = event.point;
+  DrawApp.currentPathAttrs.updatePoint(event.point);
+  DrawApp.currentPathAttrs.sendMessage("drawPath");
+  DrawApp.drawPath(DrawApp.currentPathAttrs);
+}
+
+function onMouseUp() {
+  DrawApp.simplify(DrawApp.currentPathAttrs);
+  DrawApp.currentPathAttrs.sendMessage("simplify");
+}
+
+
+// Globals
 window.DrawGlobals = {};
+
 DrawGlobals.clearScreen = function() {
   project.clear()
   view.draw();
 }
 
 DrawGlobals.undo = function() {
-  if (path_order.length > 0) {
-    last_drawn = path_order.pop();
-    paths[last_drawn].remove();
-    delete paths[last_drawn]
+  if (DrawApp.path_order.length > 0) {
+    last_drawn = DrawApp.path_order.pop();
+    DrawApp.paths[last_drawn].remove();
+    delete DrawApp.paths[last_drawn]
     view.draw();
   }
 }
