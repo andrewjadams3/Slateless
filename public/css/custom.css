@@ -1,0 +1,43 @@
+#options .colors {
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #000000;
+}
+
+#options #black {
+  background-color: #000000;
+}
+
+#options #red {
+  background-color: #FF0000;
+}
+
+#options #purple {
+  background-color: #663399;
+}
+
+#options #blue {
+  background-color: #000099;
+}
+
+#options #green {
+  background-color: #009900;
+}
+
+#options #yellow {
+  background-color: #FFFF00;
+}
+
+#options #orange {
+  background-color: #FF9900;
+}
+
+#options #brown {
+  background-color: #802A2A;
+}
+
+canvas {
+  cursor: none;
+  background-image: url("../canvas.png");
+}

@@ -1,13 +1,26 @@
-<div class="top-nav">
-  <h1><a href="/">Slateless</a></h1>
-  <ul class="nav">
-    <% if @current_user %>
-      <li><a href="/account/signout">Sign Out</a>
-      <li><a href="/account">Account</a></p>
-    <% else %>
-      <li><a href="/account/signin">Sign In</a>
-      <li><a href="/account/signup">Sign Up</a>
-    <% end %>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Slateless</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
-</div>
 
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if @current_user %>
+        <li><a href="/account/signout">Sign Out</a>
+        <li><a href="/account">Account</a>
+      <% else %>
+        <li><a href="/account/signin">Sign In</a>
+        <li><a href="/account/signup">Sign Up</a>
+      <% end %>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+    </ul>
+  </section>
+</nav>

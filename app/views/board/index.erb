@@ -1,15 +1,47 @@
-<div class="container">
-  <div id="options">
-    <a href="#"><div class="colors" id="black"></div></a>
-    <a href="#"><div class="colors" id="red"></div></a>
-    <a href="#"><div class="colors" id="purple"></div></a>
-    <a href="#"><div class="colors" id="blue"></div></a>
-    <a href="#"><div class="colors" id="green"></div></a>
-    <a href="#"><div class="colors" id="yellow"></div></a>
-    <a href="#"><div class="colors" id="orange"></div></a>
-    <a href="#"><div class="colors" id="brown"></div></a>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title"><%= @current_user.email if @current_user %></h1>
+      </section>
+
+      <section class="right-small">
+        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list" id="options">
+        <li><label>Colors</label>
+        <li><a href="#"><div class="colors" id="black"></div></a>
+        <li><a href="#"><div class="colors" id="red"></div></a>
+        <li><a href="#"><div class="colors" id="purple"></div></a>
+        <li><a href="#"><div class="colors" id="blue"></div></a>
+        <li><a href="#"><div class="colors" id="green"></div></a>
+        <li><a href="#"><div class="colors" id="yellow"></div></a>
+        <li><a href="#"><div class="colors" id="orange"></div></a>
+        <li><a href="#"><div class="colors" id="brown"></div></a>
+        <li><label>Tools</label>
+      </ul>
+    </aside>
+
+    <aside class="right-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Users</label></li>
+        <li><a href="#">Andrew</a></li>
+      </ul>
+    </aside>
+
+    <canvas class="main-section" id="draw" resize="true"></canvas>
+    <script src="/js/paper-full.min.js"></script>
+    <script src="/js/options.js", canvas="draw"></script>
+    <script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
+
+  <a class="exit-off-canvas"></a>
+
   </div>
-  <canvas id="draw" resize="true"></canvas>
-  <script src="/js/options.js", canvas="draw"></script>
-  <script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
 </div>
