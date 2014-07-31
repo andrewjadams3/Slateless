@@ -12,6 +12,7 @@ def find_board(board_url)
 end
 
 def random_url
-  letters = ('0'..'9').to_a + ('A'..'Z').to_a
-  letters.shuffle[0,6].join
+  letters = ('1'..'9').to_a + ('A'..'N').to_a + ('P'..'Z').to_a
+  random = letters.shuffle[0,6]
+  random[0..2].join + "-" + random[3..5].join
 end

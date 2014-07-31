@@ -1,5 +1,5 @@
 get '/board/:id' do
-  if find_board(params[:id])
+  if find_board(params[:id].upcase)
     current_user
     erb :'board/index'
   else
