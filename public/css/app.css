@@ -64,7 +64,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -1615,7 +1615,7 @@ select {
   color: #222222;
   padding: 1rem;
   display: block;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 1rem;
 }
 /* line 142, ../../bower_components/foundation/scss/foundation/components/_accordion.scss */
@@ -2315,7 +2315,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -4221,7 +4221,7 @@ kbd {
 /* line 91, ../../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label {
   font-weight: normal;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -4797,7 +4797,7 @@ ul.pagination li {
   color: #eeeeee;
   font-weight: normal;
   font-size: 1rem;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 143, ../../bower_components/foundation/scss/foundation/components/_pricing-tables.scss */
 .pricing-table .price {
@@ -4807,7 +4807,7 @@ ul.pagination li {
   color: #333333;
   font-weight: normal;
   font-size: 2rem;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 144, ../../bower_components/foundation/scss/foundation/components/_pricing-tables.scss */
 .pricing-table .description {
@@ -5163,7 +5163,7 @@ dialog[open] {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: outside;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 70, ../../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li {
@@ -5186,7 +5186,7 @@ dialog[open] {
 .side-nav li.active > a:first-child:not(.button) {
   color: #1cc7ff;
   font-weight: normal;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 92, ../../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.divider {
@@ -5354,7 +5354,7 @@ dialog[open] {
   display: inline;
   margin-left: 1rem;
   margin-bottom: 0.625rem;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 0.875rem;
   color: #999999;
@@ -5881,7 +5881,7 @@ p aside {
 /* Default header styles */
 /* line 247, ../../bower_components/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222222;
@@ -6302,7 +6302,7 @@ blockquote p {
   background: #efefef;
   color: #222222;
   padding: 1rem 2rem;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 1rem;
 }
 /* line 47, ../../bower_components/foundation/scss/foundation/components/_tabs.scss */
@@ -6560,14 +6560,14 @@ meta.foundation-mq-topbar {
 /* line 137, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .fixed.expanded:not(.top-bar) .top-bar-section {
   z-index: 98;
-  margin-top: 50px;
+  margin-top: 55px;
 }
 
 /* line 144, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar {
   overflow: hidden;
-  height: 50px;
-  line-height: 50px;
+  height: 55px;
+  line-height: 55px;
   position: relative;
   background: #333333;
   margin-bottom: 0;
@@ -6607,13 +6607,13 @@ meta.foundation-mq-topbar {
 }
 /* line 181, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar .name {
-  height: 50px;
+  height: 55px;
   margin: 0;
   font-size: 16px;
 }
 /* line 186, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar .name h1 {
-  line-height: 50px;
+  line-height: 55px;
   font-size: 1.0625rem;
   margin: 0;
 }
@@ -6623,7 +6623,7 @@ meta.foundation-mq-topbar {
   color: white;
   width: 75%;
   display: block;
-  padding: 0 16.66667px;
+  padding: 0 18.33333px;
 }
 /* line 201, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar .toggle-topbar {
@@ -6639,9 +6639,9 @@ meta.foundation-mq-topbar {
   font-weight: bold;
   position: relative;
   display: block;
-  padding: 0 16.66667px;
-  height: 50px;
-  line-height: 50px;
+  padding: 0 18.33333px;
+  height: 55px;
+  line-height: 55px;
 }
 /* line 219, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar .toggle-topbar.menu-icon {
@@ -6652,7 +6652,7 @@ meta.foundation-mq-topbar {
 .top-bar .toggle-topbar.menu-icon a {
   height: 34px;
   line-height: 33px;
-  padding: 0 41.66667px 0 16.66667px;
+  padding: 0 43.33333px 0 18.33333px;
   color: white;
   position: relative;
 }
@@ -6664,7 +6664,7 @@ meta.foundation-mq-topbar {
   height: 0;
   top: 50%;
   margin-top: -8px;
-  right: 16.66667px;
+  right: 18.33333px;
   box-shadow: 0 0px 0 1px white, 0 7px 0 1px white, 0 14px 0 1px white;
   width: 16px;
 }
@@ -6724,8 +6724,8 @@ meta.foundation-mq-topbar {
   width: 100%;
   color: white;
   padding: 12px 0 12px 0;
-  padding-left: 16.66667px;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  padding-left: 18.33333px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 0.8125rem;
   font-weight: normal;
   text-transform: none;
@@ -6733,8 +6733,8 @@ meta.foundation-mq-topbar {
 /* line 312, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button {
   font-size: 0.8125rem;
-  padding-right: 16.66667px;
-  padding-left: 16.66667px;
+  padding-right: 18.33333px;
+  padding-left: 18.33333px;
   background-color: #008cba;
   border-color: #007095;
   color: white;
@@ -6792,8 +6792,8 @@ meta.foundation-mq-topbar {
 /* line 323, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > button {
   font-size: 0.8125rem;
-  padding-right: 16.66667px;
-  padding-left: 16.66667px;
+  padding-right: 18.33333px;
+  padding-left: 18.33333px;
   background-color: #008cba;
   border-color: #007095;
   color: white;
@@ -6866,7 +6866,7 @@ meta.foundation-mq-topbar {
 }
 /* line 356, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .has-form {
-  padding: 16.66667px;
+  padding: 18.33333px;
 }
 /* line 359, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .has-dropdown {
@@ -6881,7 +6881,7 @@ meta.foundation-mq-topbar {
   border: inset 5px;
   border-color: transparent transparent transparent rgba(255, 255, 255, 0.4);
   border-left-style: solid;
-  margin-right: 16.66667px;
+  margin-right: 18.33333px;
   margin-top: -4.5px;
   position: absolute;
   top: 50%;
@@ -6928,7 +6928,7 @@ meta.foundation-mq-topbar {
 /* line 399, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li a {
   font-weight: normal;
-  padding: 8px 16.66667px;
+  padding: 8px 18.33333px;
 }
 /* line 402, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li a.parent-link {
@@ -6942,12 +6942,12 @@ meta.foundation-mq-topbar {
 /* line 410, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li.title h5 a {
   color: white;
-  line-height: 25px;
+  line-height: 27.5px;
   display: block;
 }
 /* line 416, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li.has-form {
-  padding: 8px 16.66667px;
+  padding: 8px 18.33333px;
 }
 /* line 417, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li .button, .top-bar-section .dropdown li button {
@@ -6955,7 +6955,7 @@ meta.foundation-mq-topbar {
 }
 /* line 420, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown label {
-  padding: 8px 16.66667px 2px;
+  padding: 8px 18.33333px 2px;
   margin-bottom: 0;
   text-transform: uppercase;
   color: #777777;
@@ -7042,8 +7042,8 @@ meta.foundation-mq-topbar {
   }
   /* line 489, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li:not(.has-form) a:not(.button) {
-    padding: 0 16.66667px;
-    line-height: 50px;
+    padding: 0 18.33333px;
+    line-height: 55px;
     background: #333333;
   }
   /* line 493, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -7053,8 +7053,8 @@ meta.foundation-mq-topbar {
   }
   /* line 502, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li.active:not(.has-form) a:not(.button) {
-    padding: 0 16.66667px;
-    line-height: 50px;
+    padding: 0 18.33333px;
+    line-height: 55px;
     color: white;
     background: #008cba;
   }
@@ -7064,7 +7064,7 @@ meta.foundation-mq-topbar {
   }
   /* line 516, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-dropdown > a {
-    padding-right: 36.66667px !important;
+    padding-right: 38.33333px !important;
   }
   /* line 518, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-dropdown > a:after {
@@ -7076,7 +7076,7 @@ meta.foundation-mq-topbar {
     border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
     border-top-style: solid;
     margin-top: -2.5px;
-    top: 25px;
+    top: 27.5px;
   }
   /* line 527, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-dropdown.moved {
@@ -7120,9 +7120,9 @@ meta.foundation-mq-topbar {
   /* line 561, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .dropdown li a {
     color: white;
-    line-height: 50px;
+    line-height: 55px;
     white-space: nowrap;
-    padding: 12px 16.66667px;
+    padding: 12px 18.33333px;
     background: #333333;
   }
   /* line 569, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -7152,14 +7152,14 @@ meta.foundation-mq-topbar {
     border-top: none;
     border-right: solid 1px #4e4e4e;
     clear: none;
-    height: 50px;
+    height: 55px;
     width: 0;
   }
   /* line 604, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-form {
     background: #333333;
-    padding: 0 16.66667px;
-    height: 50px;
+    padding: 0 18.33333px;
+    height: 55px;
   }
   /* line 612, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .right li .dropdown {
@@ -8055,9 +8055,50 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 4, ../scss/app.scss */
-.row.full-width {
+/* line 5, ../scss/app.scss */
+.top-bar .row {
+  max-width: 62.5rem;
+}
+/* line 7, ../scss/app.scss */
+.top-bar .name h1 {
+  font-size: 1.5em;
+}
+
+/* line 11, ../scss/app.scss */
+.full-width {
   width: 100%;
   max-width: 100%;
-  background: #E0E0E0;
+}
+
+/* line 16, ../scss/app.scss */
+.hero {
+  padding: 10px 0;
+}
+
+/* line 20, ../scss/app.scss */
+.content {
+  padding: 20px 0;
+}
+
+/* line 24, ../scss/app.scss */
+.row.signup {
+  max-width: 500px;
+  margin: auto;
+}
+
+@media only screen and (min-width: 55em) {
+  /* line 31, ../scss/app.scss */
+  .content {
+    padding: 40px 0;
+  }
+
+  /* line 33, ../scss/app.scss */
+  .hero .row.buttons {
+    max-width: 1024px;
+    margin: auto;
+  }
+  /* line 34, ../scss/app.scss */
+  .hero h1 {
+    font-size: 5em;
+  }
 }

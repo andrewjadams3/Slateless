@@ -1,10 +1,38 @@
 @import "settings";
 @import "foundation";
 
-.row.full-width {
+.top-bar {
+  .row { max-width: 62.5rem; }
+  .name {
+    h1 {font-size: 1.5em;}
+  }
+}
+
+.full-width {
   width: 100%;
   max-width: 100%; 
-  background: #E0E0E0;
+}
+
+.hero {
+  padding: 10px 0;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.row.signup {
+  max-width: 500px;
+  margin: auto;
+}
+
+
+@media only screen and (min-width: 55em) { 
+  .content { padding: 40px 0; }
+  .hero {
+    .row.buttons { max-width: 1024px; margin: auto; }
+    h1 { font-size: 5em; }
+  }
 }
 
 // Or selectively include components

@@ -1,8 +1,26 @@
-<div class="container">
+<div class="content">
   <div class="row text-center full-width hero">
     <h1>Welcome to Slateless</h1>
     <h4>A simple whiteboard app for teachers and students</h4><br>
-    <a href="#" class="large radius button">Join a Board</a><br>
-    <a href="#" class="large radius success button">Create a New Board</a>
+    <div class="row buttons">
+      <div class="medium-6 columns small-centered">
+        <div class="row">
+          <div class="medium-6 columns">
+          <a href="#" class="medium button full-width" data-reveal-id="joinModal">Join</a>
+          <p>Join an existing whiteboard.</p>
+        </div>
+        <div class="medium-6 columns">
+          <a href="#" class="medium success button full-width">Create</a>
+          <p>Create a new whiteboard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="joinModal" class="reveal-modal small text-center" data-reveal>
+    <h2>Please Enter a Board ID</h2>
+    <p>A board ID should be given to you by your teacher.</p>
+    <a href="" class="small button">Join!</a>
+    <a class="close-reveal-modal">&#215;</a>
   </div>
 </div>
