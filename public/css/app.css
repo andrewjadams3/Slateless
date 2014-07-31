@@ -8086,18 +8086,27 @@ th.hide-for-touch {
   margin: auto;
 }
 
+/* line 29, ../scss/app.scss */
+.row.join-board {
+  max-width: 400px;
+}
+/* line 31, ../scss/app.scss */
+.row.join-board input {
+  text-align: center;
+}
+
 @media only screen and (min-width: 55em) {
-  /* line 31, ../scss/app.scss */
+  /* line 35, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 33, ../scss/app.scss */
+  /* line 37, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 34, ../scss/app.scss */
+  /* line 38, ../scss/app.scss */
   .hero h1 {
     font-size: 5em;
   }

@@ -26,6 +26,10 @@
   margin: auto;
 }
 
+.row.join-board {
+  max-width: 400px;
+  input { text-align: center}
+}
 
 @media only screen and (min-width: 55em) { 
   .content { padding: 40px 0; }

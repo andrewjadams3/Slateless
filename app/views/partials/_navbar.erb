@@ -11,8 +11,14 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if @current_user %>
-        <li><a href="/account/signout">Sign Out</a>
-        <li><a href="/account">Account</a>
+        <li class="has-dropdown">
+          <a href="#"><%= @current_user.email %></a>
+          <ul class="dropdown">
+            <li><a href="/account">My Boards</a></li>
+            <li><a href="/account">Account Settings</a></li>
+            <li><a href="/account/signout">Sign Out</a>
+          </ul>
+        </li>
       <% else %>
         <li><a href="/account/signin">Sign In</a>
         <li><a href="/account/signup">Sign Up</a>
