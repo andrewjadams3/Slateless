@@ -3,7 +3,7 @@
   <% if @current_user.boards %>
     <% @current_user.boards.each do |board| %>
     <ul>
-      <li><a href="/board/<%= board.url %>"><%= board.url %>
+      <li><a href="/board/<%= board.url %>"><%= board.title ? board.title : 'untitled' %>
     </ul>
     <% end %>
   <% end %>

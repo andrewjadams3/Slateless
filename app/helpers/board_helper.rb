@@ -1,14 +1,14 @@
-def new_board
+def new_board(title)
   new_url = ""
   loop do
     new_url = random_url
     break unless Board.exists?(url: new_url)
   end
-  Board.create(url: new_url)
+  Board.create(url: new_url, title: title)
 end
 
 def find_board(board_url)
-  @board = Board.find_by_url board_url
+  Board.find_by_url board_url
 end
 
 def random_url

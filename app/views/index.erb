@@ -10,34 +10,97 @@
           <p>Join an existing whiteboard.</p>
         </div>
         <div class="medium-6 columns">
-          <a href="#" class="medium success button full-width">Create</a>
+          <a href="#" class="medium success button full-width" data-reveal-id="createModal">Create</a>
           <p>Create a new whiteboard.</p>
         </div>
       </div>
     </div>
   </div>
 
+  <div id="createModal" class="reveal-modal medium text-center" data-reveal>
+    <h2>Board Title</h2>
+    <p>Please provide a title for your new board (eg: Biology 101)</p>
+    <form id="create-board">
+      <div class="row join-board">
+        <div class="small-10 columns small-centered">
+          <input type="text" name="title"/>
+        </div>
+      </div>
+      <button type="submit" name="submit" class="medium button">Create!</button>
+    </form>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+
   <div id="joinModal" class="reveal-modal medium text-center" data-reveal>
     <h2>Please Enter a Board ID</h2>
+    <div id="join-error" class="alert-box alert" style="display: none;" data-alert>
+      Uh-oh! We can't find that board.
+    </div>
     <p>A board ID should be given to you by your teacher.</p>
-    <form>
+    <form id="join-board">
       <div class="row join-board">
         <div class="small-8 columns small-centered">
           <div class="row">
             <div class="small-5 columns">
-              <input type="text" maxlength="3" onkeypress="return isNumberKey(event)"/>
+              <input type="text" name="first" maxlength="3" onkeyup="caps(this)"/>
             </div>
             <div class="small-2 columns">
               <label for="right-label" class="inline"><b>―</b></label>
             </div>
             <div class="small-5 columns">                   
-              <input type="text" id="right-label" maxlength="3" onkeypress="return isNumberKey(event)"/>
+              <input type="text" name="second" id="right-label" maxlength="3" onkeyup="caps(this)"/>
             </div>
           </div>
         </div>
       </div>
+      <button type="submit" name="submit" class="medium button">Join!</button>
     </form>
-    <a href="" class="medium button">Join!</a>
     <a class="close-reveal-modal">&#215;</a>
   </div>
 </div>
+
+<script>
+function caps(element){
+    element.value = element.value.toUpperCase();
+}
+
+$(document).ready(function(){
+
+  $('#join-board').submit(function(event){
+    event.preventDefault();
+    $('input').attr("disabled", false);
+    $('button').attr("disabled", true);
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: "GET",
+      url: ('/board/fetch'),
+      data: formData,
+      success: function(response){
+        window.location = ("/board/" + response.url);
+      },
+      error: function(){
+        $('input').attr("disabled", false);
+        $('button').attr("disabled", false);
+        $('#join-error').removeAttr("style");
+      }
+    });
+  });
+
+  $('#create-board').submit(function(){
+    event.preventDefault();
+    $('input').attr("disabled", false);
+    $('button').attr("disabled", true);
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: "POST",
+      url: '/board',
+      data: formData,
+      success: function(response){
+        window.location = ("/board/" + response.url)
+      }
+    });
+  });
+});
+</script>

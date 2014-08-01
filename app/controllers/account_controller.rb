@@ -35,13 +35,11 @@ end
 post '/account/signup' do
   data = params[:data]
   user = User.new(data)
-  if user.valid?
-    user.save
+  if user.save
     session[:current_user] = user.id
     redirect '/account'
   else
     @errors = user.errors.full_messages
-    @name = data[:name]
     @email = data[:email]
     erb :'account/signup'
   end

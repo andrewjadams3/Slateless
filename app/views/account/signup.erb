@@ -4,7 +4,7 @@
       <h1>Sign Up</h1>
       <% if @errors %>
       <p>Please correct the following errors:</p>
-      <ul>
+      <ul class="no-bullet">
         <% @errors.each do |error| %>
         <li style="color:red"><%= error %>
         <% end %>
@@ -12,6 +12,17 @@
       <% end %>
 
       <form action="/account/signup" method="post" data-abide>
+        <div class="name-field">
+          <label>First Name <small>required</small>
+            <input type="text" required name="data[first_name]" placeholder="First Name" value="<%= @first_name if @first_name %>">
+          </label>
+          <small class="error">A first name is required</small>
+        </div>
+        <div class="name-field">
+          <label>Last Name
+            <input type="text" name="data[first_name]" placeholder="Last Name" value="<%= @last_name if @last_name %>">
+          </label>
+        </div>
         <div class="email-field">
           <label>Email <small>required</small>
             <input type="email" required name="data[email]" placeholder="Email" value="<%= @email if @email %>">
