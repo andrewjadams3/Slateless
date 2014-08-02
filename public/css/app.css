@@ -8061,53 +8061,69 @@ th.hide-for-touch {
 }
 /* line 7, ../scss/app.scss */
 .top-bar .name h1 {
-  font-size: 1.5em;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.3em;
 }
 
-/* line 11, ../scss/app.scss */
+/* line 14, ../scss/app.scss */
 .full-width {
   width: 100%;
   max-width: 100%;
 }
 
-/* line 16, ../scss/app.scss */
+/* line 19, ../scss/app.scss */
 .hero {
   padding: 10px 0;
 }
+/* line 21, ../scss/app.scss */
+.hero #title {
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 3px 3px #E0E0E0;
+}
 
-/* line 20, ../scss/app.scss */
+/* line 27, ../scss/app.scss */
 .content {
   padding: 20px 0;
 }
 
-/* line 24, ../scss/app.scss */
+/* line 31, ../scss/app.scss */
 .row.signup {
   max-width: 500px;
   margin: auto;
 }
 
-/* line 29, ../scss/app.scss */
+/* line 36, ../scss/app.scss */
 .row.join-board {
   max-width: 400px;
 }
-/* line 31, ../scss/app.scss */
+/* line 38, ../scss/app.scss */
 .row.join-board input {
   text-align: center;
 }
 
-@media only screen and (min-width: 55em) {
-  /* line 35, ../scss/app.scss */
+/* line 41, ../scss/app.scss */
+.success.button:hover:not([disabled]) {
+  background: #009900 !important;
+  /*example */
+}
+
+@media only screen and (min-width: 57em) {
+  /* line 46, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 37, ../scss/app.scss */
+  /* line 48, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 38, ../scss/app.scss */
+  /* line 49, ../scss/app.scss */
   .hero h1 {
     font-size: 5em;
+  }
+  /* line 50, ../scss/app.scss */
+  .hero #title {
+    text-shadow: 5px 5px #E0E0E0;
   }
 }

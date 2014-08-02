@@ -19,9 +19,10 @@
           <small class="error">A first name is required</small>
         </div>
         <div class="name-field">
-          <label>Last Name
-            <input type="text" name="data[first_name]" placeholder="Last Name" value="<%= @last_name if @last_name %>">
+          <label>Last Name <small>required</small>
+            <input type="text" required name="data[last_name]" placeholder="Last Name" value="<%= @last_name if @last_name %>">
           </label>
+          <small class="error">A last name is required</small>
         </div>
         <div class="email-field">
           <label>Email <small>required</small>

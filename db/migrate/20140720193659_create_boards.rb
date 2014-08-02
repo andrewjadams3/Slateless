@@ -3,7 +3,7 @@ class CreateBoards < ActiveRecord::Migration
     create_table :boards do |t|
       t.belongs_to :user
       t.string :url
-      t.string :title
+      t.string :title, default: 'untitled'
       t.json :paths
       t.timestamps
     end
