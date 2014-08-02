@@ -8059,71 +8059,73 @@ th.hide-for-touch {
 .top-bar .row {
   max-width: 62.5rem;
 }
-/* line 7, ../scss/app.scss */
-.top-bar .name h1 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 1.3em;
+/* line 6, ../scss/app.scss */
+.top-bar .name {
+  width: 150px;
+  padding: 0 20px;
+  line-height: 50px;
 }
 
-/* line 14, ../scss/app.scss */
+/* line 13, ../scss/app.scss */
 .full-width {
   width: 100%;
   max-width: 100%;
 }
 
-/* line 19, ../scss/app.scss */
+/* line 18, ../scss/app.scss */
 .hero {
   padding: 10px 0;
 }
-/* line 21, ../scss/app.scss */
+/* line 20, ../scss/app.scss */
 .hero #title {
-  font-family: 'Rock Salt', cursive;
-  text-shadow: 3px 3px #E0E0E0;
+  width: 65%;
 }
 
-/* line 27, ../scss/app.scss */
+/* line 25, ../scss/app.scss */
 .content {
   padding: 20px 0;
 }
 
-/* line 31, ../scss/app.scss */
+/* line 29, ../scss/app.scss */
 .row.signup {
   max-width: 500px;
   margin: auto;
 }
 
-/* line 36, ../scss/app.scss */
+/* line 34, ../scss/app.scss */
 .row.join-board {
   max-width: 400px;
 }
-/* line 38, ../scss/app.scss */
+/* line 36, ../scss/app.scss */
 .row.join-board input {
   text-align: center;
 }
 
-/* line 41, ../scss/app.scss */
+/* line 39, ../scss/app.scss */
 .success.button:hover:not([disabled]) {
   background: #009900 !important;
   /*example */
 }
 
-@media only screen and (min-width: 57em) {
-  /* line 46, ../scss/app.scss */
+@media only screen and (min-width: 40.063em) {
+  /* line 45, ../scss/app.scss */
+  .hero #title {
+    width: 400px;
+  }
+}
+@media only screen and (min-width: 55em) {
+  /* line 50, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 48, ../scss/app.scss */
+  /* line 52, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 49, ../scss/app.scss */
-  .hero h1 {
-    font-size: 5em;
-  }
-  /* line 50, ../scss/app.scss */
+  /* line 53, ../scss/app.scss */
   .hero #title {
-    text-shadow: 5px 5px #E0E0E0;
+    width: 600px;
   }
 }

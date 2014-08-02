@@ -3,11 +3,10 @@
 
 .top-bar {
   .row { max-width: 62.5rem; }
-  .name {
-    h1 {
-      font-family: 'Rock Salt', cursive;
-      font-size: 1.3em;
-    }
+  .name { 
+    width: 150px;
+    padding: 0 20px;
+    line-height: 50px;
   }
 }
 
@@ -19,8 +18,7 @@
 .hero {
   padding: 10px 0;
   #title {
-    font-family: 'Rock Salt', cursive;
-    text-shadow: 3px 3px #E0E0E0;
+    width: 65%;
   }
 }
 
@@ -42,12 +40,17 @@
     background: #009900 !important; /*example */
 }
 
-@media only screen and (min-width: 57em) { 
+@media #{$medium-up} { 
+  .hero {
+    #title {width: 400px}
+  }
+}
+
+@media only screen and (min-width: 55em) { 
   .content { padding: 40px 0; }
   .hero {
     .row.buttons { max-width: 1024px; margin: auto; }
-    h1 { font-size: 5em; }
-    #title {text-shadow: 5px 5px #E0E0E0;}
+    #title {width: 600px}
   }
 }
 

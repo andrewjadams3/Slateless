@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1><a href="/">Slateless</a></h1>
+      <a href="/"><img src="/images/slateless-logo.svg"></a>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -12,7 +12,7 @@
     <ul class="right">
       <% if @current_user %>
         <li class="has-dropdown">
-          <a href="#"><%= @current_user.email %></a>
+          <a href="#"><%= @current_user.first_name + " " + @current_user.last_name %></a>
           <ul class="dropdown">
             <li><a href="/account">My Boards</a></li>
             <li><a href="/account">Account Settings</a></li>
