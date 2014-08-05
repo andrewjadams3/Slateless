@@ -40,6 +40,10 @@
     background: #009900 !important; /*example */
 }
 
+canvas {
+  cursor: none;
+}
+
 @media #{$medium-up} { 
   .hero {
     #title {width: 400px}

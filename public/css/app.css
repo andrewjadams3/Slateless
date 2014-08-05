@@ -8107,24 +8107,29 @@ th.hide-for-touch {
   /*example */
 }
 
+/* line 43, ../scss/app.scss */
+canvas {
+  cursor: none;
+}
+
 @media only screen and (min-width: 40.063em) {
-  /* line 45, ../scss/app.scss */
+  /* line 49, ../scss/app.scss */
   .hero #title {
     width: 400px;
   }
 }
 @media only screen and (min-width: 55em) {
-  /* line 50, ../scss/app.scss */
+  /* line 54, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 52, ../scss/app.scss */
+  /* line 56, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 53, ../scss/app.scss */
+  /* line 57, ../scss/app.scss */
   .hero #title {
     width: 600px;
   }
