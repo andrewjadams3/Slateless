@@ -17,8 +17,15 @@ $(document).on('ready', function() {
   $("#brown").click(function() {style.strokeColor = '#802A2A'});
   $("#purple").click(function() {style.strokeColor = '#663399'});
 
+
   // Width
   $("#small").click(function() {style.strokeWidth = 2});
   $("#medium").click(function() {style.strokeWidth = 5});
   $("#large").click(function() {style.strokeWidth = 10});
+
+  //Undo
+  $("#undo").click(function() { DrawGlobals.undo(); });
+
+  //Clear
+  $("#clearScreen").click(function() { DrawGlobals.clearScreen(); });
 });

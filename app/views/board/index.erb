@@ -1,32 +1,61 @@
 <div class="icon-bar six-up">
-  <a class="item">
-    <i class="fa fa-pencil"></i>
+  <a class="item" data-reveal-id="colorsModal">
+    <i class="fa fa-circle-o"></i>
     <label>Colors</label>
   </a>
-  <a class="item">
-    <i class="fa fa-circle-o"></i>
-    <label>Size</label>
+  <a class="item" data-reveal-id="toolsModal">
+    <i class="fa fa-pencil"></i>
+    <label>Tools</label>
   </a>
-  <a class="item">
-    <i class="fa fa-eraser"></i>
-    <label>Eraser</label>
-  </a>
-  <a class="item">
+  <a class="item" id="undo">
     <i class="fa fa-undo"></i>
     <label>Undo</label>
+  </a>
+  <a class="item" id="clearScreen">
+    <i class="fa fa-edit"></i>
+    <label>Reset</label>
   </a>
   <a class="item">
     <i class="fa fa-save"></i>
     <label>Save</label>
   </a>
-  <a class="item">
+  <a href="/" class="item">
     <i class="fa fa-home"></i>
     <label>Home</label>
   </a>
 </div>
 
-<canvas class="main-section" id="draw" resize="true"></canvas>
+<div id="colorsModal" class="reveal-modal large text-center" data-reveal data-options="animation: none; animation_speed: 700;">
+  <h2>Colors</h2><br>
+  <div class="row">
+    <div class="small-12 medium-10 large-8 columns small-centered">
+      <div class="row">
+        <div class="small-4 columns"><a href="#" id="black"><i class="fa fa-circle fa-3x"></i><br>Black</a></div>
+        <div class="small-4 columns"><a href="#" id="red"><i class="fa fa-circle fa-3x"></i><br>Red</a></div>
+        <div class="small-4 columns"><a href="#" id="purple"><i class="fa fa-circle fa-3x"></i><br>Purple</a></div>
+      </div><br>
+      <div class="row">
+        <div class="small-4 columns"><a href="#" id="blue"><i class="fa fa-circle fa-3x"></i><br>Blue</a></div>
+        <div class="small-4 columns"><a href="#" id="green"><i class="fa fa-circle fa-3x"></i><br>Green</a></div>
+        <div class="small-4 columns"><a href="#" id="brown"><i class="fa fa-circle fa-3x"></i><br>Brown</a></div>
+      </div>
+    </div>
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
+<div id="toolsModal" class="reveal-modal large text-center" data-reveal data-options="animation: none; animation_speed: 700;">
+  <h2>Tools</h2><br>
+  <div class="row">
+    <div class="small-3 columns"><a href="#" id="small"><i class="fa fa-circle-o "></i><br>Small</a></div>
+    <div class="small-3 columns"><a href="#" id="medium"><i class="fa fa-circle-o fa-2x"></i><br>Medium</a></div>
+    <div class="small-3 columns"><a href="#" id="large"><i class="fa fa-circle-o fa-3x"></i><br>Large</a></div>
+    <div class="small-3 columns"><i class="fa fa-eraser fa-2x"></i><br>Eraser</div>
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<canvas class="main-section" id="draw" resize="true"></canvas>
 <div id="canvas-logo">Slateless</div>
 
 <script src="/js/paper-full.min.js"></script>
