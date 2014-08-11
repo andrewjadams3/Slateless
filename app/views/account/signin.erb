@@ -1,13 +1,22 @@
 <div class="content">
   <div class="medium-10 columns small-centered">
     <div class="row signup">
-      <h1>Sign In</h1>
+
       <% if @error %>
       <div data-alert class="alert-box alert">
         <%= @error %>
         <a href="#" class="close">&times;</a>
       </div>
       <% end %>
+
+      <% if flash[:notice] %>
+      <div data-alert class="alert-box info">
+        <%= flash[:notice] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+      <% end %>
+
+      <h1>Sign In</h1>
 
       <form action="/account/signin" method="post" data-abide>
         <div class="email-field">

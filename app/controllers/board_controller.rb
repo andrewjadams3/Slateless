@@ -18,6 +18,7 @@ get '/board/:id' do
     current_user
     erb :'board/index'
   else
+    flash[:alert] = "Uh-oh! We can't find that board."
     redirect '/'
   end
 end
