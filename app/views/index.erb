@@ -1,5 +1,25 @@
 <div class="content">
   <div class="row text-center full-width hero">
+    
+    <div class="medium-8 columns small-centered">
+      <div class="row">
+        <% if flash[:alert] %>
+        <div data-alert class="alert-box alert">
+          <%= flash[:alert] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+        <% end %>
+
+        <% if flash[:notice] %>
+        <div data-alert class="alert-box info">
+          <%= flash[:notice] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+
     <img id="title" src="/images/slateless-title.svg">
     <h4>A simple whiteboard app for teachers and students.</h4><br>
     <div class="row buttons">

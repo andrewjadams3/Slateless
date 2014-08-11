@@ -2,12 +2,18 @@ get '/account' do
   if current_user
     erb :'account/index'
   else
+    flash[:notice] = "Please sign in."
     redirect '/account/signin'
   end
 end
 
 get '/account/signin' do
-  erb :'account/signin'
+  if current_user
+    flash[:notice] = 'You are already signed in! <a href="/account/signout">Click here to sign out.</a>'
+    redirect '/'
+  else
+    erb :'account/signin'
+  end
 end
 
 get '/account/signout' do
@@ -16,7 +22,12 @@ get '/account/signout' do
 end
 
 get '/account/signup' do
-  erb :'account/signup'
+  if current_user
+    flash[:notice] = 'You are already signed in! <a href="/account/signout">Click here to sign out.</a>'
+    redirect '/'
+  else
+    erb :'account/signup'
+  end
 end
 
 post '/account/signin' do
@@ -26,7 +37,7 @@ post '/account/signin' do
     session[:current_user] = user.id
     redirect '/account'
   else
-    @error = "Login unsuccessful"
+    @error = "Sign in unsuccessful"
     @email = data[:email]
     erb :'account/signin'
   end

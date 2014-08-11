@@ -17,6 +17,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Websockets
 gem "faye-websocket"
 
+# Flash messages
+gem 'sinatra-flash'
+
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 
