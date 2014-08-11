@@ -45,6 +45,18 @@ canvas {
   cursor: none;
 }
 
+#canvas-logo {
+  padding: 2px;
+  margin: 30px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.4em;
+  opacity: 0.3;
+  cursor: none;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
 @media #{$medium-up} { 
   .hero {
     #title {font-size: 4em;}

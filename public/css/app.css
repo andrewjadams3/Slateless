@@ -8113,24 +8113,37 @@ canvas {
   cursor: none;
 }
 
+/* line 48, ../scss/app.scss */
+#canvas-logo {
+  padding: 2px;
+  margin: 30px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.4em;
+  opacity: 0.3;
+  cursor: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 @media only screen and (min-width: 40.063em) {
-  /* line 50, ../scss/app.scss */
+  /* line 62, ../scss/app.scss */
   .hero #title {
     font-size: 4em;
   }
 }
 @media only screen and (min-width: 55em) {
-  /* line 55, ../scss/app.scss */
+  /* line 67, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 57, ../scss/app.scss */
+  /* line 69, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 58, ../scss/app.scss */
+  /* line 70, ../scss/app.scss */
   .hero #title {
     font-size: 6em;
   }
