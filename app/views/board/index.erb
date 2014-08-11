@@ -1,47 +1,31 @@
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-    <nav class="tab-bar">
-      <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-
-      <section class="middle tab-bar-section">
-        <h1 class="title"><%= @current_user.email if @current_user %></h1>
-      </section>
-
-      <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-    </nav>
-
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list" id="options">
-        <li><label>Colors</label>
-        <li><a href="#" id="black">Black</a>
-        <li><a href="#" id="red">Red</a>
-        <li><a href="#" id="purple">Purple</a>
-        <li><a href="#" id="blue">Blue</a>
-        <li><a href="#" id="green">Green</a>
-        <li><a href="#" id="yellow">Yellow</a>
-        <li><a href="#" id="orange">Orange</a>
-        <li><a href="#" id="brown">Brown</a>
-        <li><label>Tools</label>
-      </ul>
-    </aside>
-
-    <aside class="right-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Users</label></li>
-        <li><a href="#">Andrew</a></li>
-      </ul>
-    </aside>
-
-    <canvas class="main-section" id="draw" resize="true"></canvas>
-    <script src="/js/paper-full.min.js"></script>
-    <script src="/js/options.js", canvas="draw"></script>
-    <script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
-
-  <a class="exit-off-canvas"></a>
-
-  </div>
+<div class="icon-bar six-up">
+  <a class="item">
+    <i class="fa fa-pencil"></i>
+    <label>Colors</label>
+  </a>
+  <a class="item">
+    <i class="fa fa-circle-o"></i>
+    <label>Size</label>
+  </a>
+  <a class="item">
+    <i class="fa fa-eraser"></i>
+    <label>Eraser</label>
+  </a>
+  <a class="item">
+    <i class="fa fa-undo"></i>
+    <label>Undo</label>
+  </a>
+  <a class="item">
+    <i class="fa fa-save"></i>
+    <label>Save</label>
+  </a>
+  <a class="item">
+    <i class="fa fa-home"></i>
+    <label>Home</label>
+  </a>
 </div>
+
+<canvas class="main-section" id="draw" resize="true"></canvas>
+<script src="/js/paper-full.min.js"></script>
+<script src="/js/options.js", canvas="draw"></script>
+<script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
