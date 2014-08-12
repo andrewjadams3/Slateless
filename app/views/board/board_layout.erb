@@ -3,16 +3,16 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href='http://fonts.googleapis.com/css?family=Lato|Rock+Salt' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/app.css">
 
   <script src="/js/vendor/modernizr.js"></script>
   
-  <title>Slateless</title>
+  <title><%= @board.title %> | Slateless</title>
 </head>
 <body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <%= erb :"partials/_navbar", :layout => false %>
   <%= yield %>
   <script src="/js/vendor/fastclick.js"></script>
   <script src="/js/foundation.min.js"></script>

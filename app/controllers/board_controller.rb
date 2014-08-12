@@ -16,7 +16,7 @@ get '/board/:id' do
   @board = find_board(params[:id].upcase)
   if @board
     current_user
-    erb :'board/index'
+    erb :'board/index', layout: :'board/board_layout'
   else
     flash[:alert] = "Uh-oh! We can't find that board."
     redirect '/'

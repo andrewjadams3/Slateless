@@ -1,47 +1,83 @@
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-    <nav class="tab-bar">
-      <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
+<div class="icon-bar six-up">
+  <a class="item" data-reveal-id="colorsModal">
+    <i class="fa fa-pencil"></i>
+    <label>Colors</label>
+  </a>
+  <a class="item" data-reveal-id="sizesModal">
+    <i class="fa fa-circle-o"></i>
+    <label>Sizes</label>
+  </a>
+  <a class="item" id="undo">
+    <i class="fa fa-undo"></i>
+    <label>Undo</label>
+  </a>
+  <a class="item" data-reveal-id="resetModal">
+    <i class="fa fa-edit"></i>
+    <label>Reset</label>
+  </a>
+  <a class="item" data-reveal-id="saveModal">
+    <i class="fa fa-save"></i>
+    <label>Save</label>
+  </a>
+  <a href="/" class="item">
+    <i class="fa fa-home"></i>
+    <label>Home</label>
+  </a>
+</div>
 
-      <section class="middle tab-bar-section">
-        <h1 class="title"><%= @current_user.email if @current_user %></h1>
-      </section>
+<div id="colorsModal" class="reveal-modal medium text-center" data-reveal data-options="animation: none;">
+  <h2>Colors</h2><br>
+  <div class="row">
+    <div class="small-12 medium-10 large-8 columns small-centered">
+      <div class="row">
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="black"><i class="fa fa-pencil fa-3x"></i><br>Black</a></div>
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="red"><i class="fa fa-pencil fa-3x"></i><br>Red</a></div>
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="purple"><i class="fa fa-pencil fa-3x"></i><br>Purple</a></div>
+      </div><br>
+      <div class="row">
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="blue"><i class="fa fa-pencil fa-3x"></i><br>Blue</a></div>
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="green"><i class="fa fa-pencil fa-3x"></i><br>Green</a></div>
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="yellow"><i class="fa fa-pencil fa-3x"></i><br>Yellow</a></div>
+      </div><br>
+      <div class="row">
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="orange"><i class="fa fa-pencil fa-3x"></i><br>Orange</a></div>
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="brown"><i class="fa fa-pencil fa-3x"></i><br>Brown</a></div>
+        <div class="small-4 columns"><a href="#" class="draw-colors" id="eraser"><i class="fa fa-eraser fa-3x"></i><br>Eraser</a></div>
+      </div>
+    </div>
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
-      <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-    </nav>
+<div id="sizesModal" class="reveal-modal medium text-center" data-reveal data-options="animation: none;">
+  <h2>Sizes</h2><br>
+  <div class="row">
+    <div class="small-4 columns"><a href="#" id="small"><i class="fa fa-circle-o "></i><br>Small</a></div>
+    <div class="small-4 columns"><a href="#" id="medium"><i class="fa fa-circle-o fa-2x"></i><br>Medium</a></div>
+    <div class="small-4 columns"><a href="#" id="large"><i class="fa fa-circle-o fa-3x"></i><br>Large</a></div>
+  </div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list" id="options">
-        <li><label>Colors</label>
-        <li><a href="#" id="black">Black</a>
-        <li><a href="#" id="red">Red</a>
-        <li><a href="#" id="purple">Purple</a>
-        <li><a href="#" id="blue">Blue</a>
-        <li><a href="#" id="green">Green</a>
-        <li><a href="#" id="yellow">Yellow</a>
-        <li><a href="#" id="orange">Orange</a>
-        <li><a href="#" id="brown">Brown</a>
-        <li><label>Tools</label>
-      </ul>
-    </aside>
-
-    <aside class="right-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Users</label></li>
-        <li><a href="#">Andrew</a></li>
-      </ul>
-    </aside>
-
-    <canvas class="main-section" id="draw" resize="true"></canvas>
-    <script src="/js/paper-full.min.js"></script>
-    <script src="/js/options.js", canvas="draw"></script>
-    <script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
-
-  <a class="exit-off-canvas"></a>
-
+<div id="resetModal" class="reveal-modal medium text-center" data-reveal data-options="animation: none;">
+  <h2>Reset</h2>
+  <p><span style="color:red">Warning:</span> This will erase your entire board. Are you sure you want to reset?</p>
+  <div class="row">
+    <div class="small-6 columns text-right"><a href="#" id="cancel-reset"><button class="medium button">Cancel</button></a></div>
+    <div class="small-6 columns text-left"><a href="#" id="accept-reset"><button class="medium button alert">Reset</button></a></div>
   </div>
 </div>
+
+<div id="saveModal" class="reveal-modal small text-center" data-reveal data-options="animation: none;">
+  <h2>Save</h2>
+  <p>Save feature coming soon!</p>
+  <button class="medium button" id="save-button">Neat!</button>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<canvas class="main-section" id="draw" resize="true"></canvas>
+<div id="canvas-logo">Slateless</div>
+
+<script src="/js/paper-full.min.js"></script>
+<script src="/js/options.js", canvas="draw"></script>
+<script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>

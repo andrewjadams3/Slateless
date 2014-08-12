@@ -3,10 +3,9 @@
 
 .top-bar {
   .row { max-width: 62.5rem; }
-  .name { 
-    width: 150px;
-    padding: 0 20px;
-    line-height: 50px;
+  .name h1 { 
+    font-family: 'Rock Salt', cursive;
+    font-size: 1.3em;
   }
 }
 
@@ -18,7 +17,9 @@
 .hero {
   padding: 10px 0;
   #title {
-    width: 65%;
+    font-size: 3em;
+    font-family: 'Rock Salt', cursive;
+    text-shadow: 5px 5px #E0E0E0;
   }
 }
 
@@ -40,13 +41,29 @@
     background: #009900 !important; /*example */
 }
 
+.alert.button:hover:not([disabled]) {
+    background: #E42217 !important; /*example */
+}
+
 canvas {
   cursor: none;
 }
 
+#canvas-logo {
+  padding: 2px;
+  margin: 30px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.4em;
+  opacity: 0.3;
+  cursor: none;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
 @media #{$medium-up} { 
   .hero {
-    #title {width: 400px}
+    #title {font-size: 4em;}
   }
 }
 
@@ -54,7 +71,7 @@ canvas {
   .content { padding: 40px 0; }
   .hero {
     .row.buttons { max-width: 1024px; margin: auto; }
-    #title {width: 600px}
+    #title {font-size: 6em;}
   }
 }
 

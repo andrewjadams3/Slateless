@@ -8060,77 +8060,97 @@ th.hide-for-touch {
   max-width: 62.5rem;
 }
 /* line 6, ../scss/app.scss */
-.top-bar .name {
-  width: 150px;
-  padding: 0 20px;
-  line-height: 50px;
+.top-bar .name h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.3em;
 }
 
-/* line 13, ../scss/app.scss */
+/* line 12, ../scss/app.scss */
 .full-width {
   width: 100%;
   max-width: 100%;
 }
 
-/* line 18, ../scss/app.scss */
+/* line 17, ../scss/app.scss */
 .hero {
   padding: 10px 0;
 }
-/* line 20, ../scss/app.scss */
+/* line 19, ../scss/app.scss */
 .hero #title {
-  width: 65%;
+  font-size: 3em;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 5px 5px #E0E0E0;
 }
 
-/* line 25, ../scss/app.scss */
+/* line 26, ../scss/app.scss */
 .content {
   padding: 20px 0;
 }
 
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .row.signup {
   max-width: 500px;
   margin: auto;
 }
 
-/* line 34, ../scss/app.scss */
+/* line 35, ../scss/app.scss */
 .row.join-board {
   max-width: 400px;
 }
-/* line 36, ../scss/app.scss */
+/* line 37, ../scss/app.scss */
 .row.join-board input {
   text-align: center;
 }
 
-/* line 39, ../scss/app.scss */
+/* line 40, ../scss/app.scss */
 .success.button:hover:not([disabled]) {
   background: #009900 !important;
   /*example */
 }
 
-/* line 43, ../scss/app.scss */
+/* line 44, ../scss/app.scss */
+.alert.button:hover:not([disabled]) {
+  background: #E42217 !important;
+  /*example */
+}
+
+/* line 48, ../scss/app.scss */
 canvas {
   cursor: none;
 }
 
+/* line 52, ../scss/app.scss */
+#canvas-logo {
+  padding: 2px;
+  margin: 30px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.4em;
+  opacity: 0.3;
+  cursor: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 @media only screen and (min-width: 40.063em) {
-  /* line 49, ../scss/app.scss */
+  /* line 66, ../scss/app.scss */
   .hero #title {
-    width: 400px;
+    font-size: 4em;
   }
 }
 @media only screen and (min-width: 55em) {
-  /* line 54, ../scss/app.scss */
+  /* line 71, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 56, ../scss/app.scss */
+  /* line 73, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 57, ../scss/app.scss */
+  /* line 74, ../scss/app.scss */
   .hero #title {
-    width: 600px;
+    font-size: 6em;
   }
 }

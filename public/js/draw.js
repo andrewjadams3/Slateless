@@ -67,10 +67,28 @@ DrawApp.request = function() {
 DrawApp.redraw = function(path_array) {
   for (var id in path_array) {
     DrawApp.paths[id] = new Path(path_array[id]["1"]);
+    DrawApp.path_order.push(id);
     view.draw();
   }
+  console.log(DrawApp.path_order)
 };
 
+DrawApp.undo = function() {
+  last_drawn = this.path_order.pop();
+  console.log(last_drawn)
+  this.paths[last_drawn].remove();
+  delete this.paths[last_drawn];
+  view.draw();
+};
+
+DrawApp.clearScreen = function() {
+  this.path_order.forEach(function(path) {
+    DrawApp.paths[path].remove();
+  });
+  this.paths = {}
+  this.path_order = [];
+  view.draw();
+}
 
 // Mouse events
 function onMouseMove(event) {
@@ -105,15 +123,15 @@ DrawApp.ws.onmessage = function(event) {
 window.DrawGlobals = {};
 
 DrawGlobals.clearScreen = function() {
-  project.clear()
-  view.draw();
+  if (DrawApp.path_order.length > 0) {
+    DrawApp.clearScreen();
+    DrawApp.ws.send(JSON.stringify({ type: "clearScreen", path: null }));
+  }
 }
 
 DrawGlobals.undo = function() {
   if (DrawApp.path_order.length > 0) {
-    last_drawn = DrawApp.path_order.pop();
-    DrawApp.paths[last_drawn].remove();
-    delete DrawApp.paths[last_drawn]
-    view.draw();
+    DrawApp.undo();
+    DrawApp.ws.send(JSON.stringify({ type: "undo", path: null }));
   }
 }
