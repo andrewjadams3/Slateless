@@ -41,6 +41,10 @@
     background: #009900 !important; /*example */
 }
 
+.alert.button:hover:not([disabled]) {
+    background: #E42217 !important; /*example */
+}
+
 canvas {
   cursor: none;
 }
