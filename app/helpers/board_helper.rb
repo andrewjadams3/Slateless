@@ -4,7 +4,7 @@ def new_board(title)
     new_url = random_url
     break unless Board.exists?(url: new_url)
   end
-  Board.create(url: new_url, title: title)
+  Board.new(url: new_url, title: title)
 end
 
 def find_board(board_url)

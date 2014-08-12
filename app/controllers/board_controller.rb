@@ -25,7 +25,12 @@ end
 
 post '/board' do
   board = new_board(params[:title])
-  current_user.boards << board if current_user
-  content_type :json
-  {url: board.url}.to_json
+  if board.save
+    flash[:new_board] = true
+    current_user.boards << board if current_user
+    content_type :json
+    {url: board.url}.to_json
+  else
+    status 400
+  end
 end

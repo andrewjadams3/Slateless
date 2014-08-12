@@ -39,6 +39,8 @@
 
   <div id="createModal" class="reveal-modal medium text-center" data-reveal>
     <h2>Whiteboard Title</h2>
+    <div id="create-error" class="alert-box alert" style="display: none;" data-alert>
+    </div>
     <p>Please provide a title for your new whiteboard (e.g. Biology 101)</p>
     <form id="create-board">
       <div class="row join-board">
@@ -119,6 +121,16 @@ $(document).ready(function(){
       data: formData,
       success: function(response){
         window.location = ("/board/" + response.url)
+      },
+      error: function(response){
+        $('input').attr("disabled", false);
+        $('button').attr("disabled", false);
+        if (response.status === 400) {
+          $('#create-error').text('A board must have a title.');
+        } else { 
+          $('#create-error').text('Sorry, something went wrong...');
+        }
+        $('#create-error').removeAttr("style");
       }
     });
   });
