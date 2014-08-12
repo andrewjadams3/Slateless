@@ -45,6 +45,10 @@
     background: #E42217 !important; /*example */
 }
 
+#welcome-info {
+  font-size: 3em;
+}
+
 canvas {
   cursor: none;
 }
@@ -65,6 +69,9 @@ canvas {
   .hero {
     #title {font-size: 4em;}
   }
+  #welcome-info {
+    font-size: 4em;
+  }
 }
 
 @media only screen and (min-width: 55em) { 
@@ -72,6 +79,9 @@ canvas {
   .hero {
     .row.buttons { max-width: 1024px; margin: auto; }
     #title {font-size: 6em;}
+  }
+  #welcome-info {
+    font-size: 6em;
   }
 }
 

@@ -32,6 +32,9 @@ $(document).on('ready', function() {
 
   //Save
   $("#save-button").click(function(event) { event.preventDefault(); $('#saveModal').foundation('reveal', 'close'); });
+
+  //Welcome
+  $("#welcome-button").click(function(event) { event.preventDefault(); $('#welcomeModal').foundation('reveal', 'close'); });
 });
 
 function selectColor(event, modalId, color) {

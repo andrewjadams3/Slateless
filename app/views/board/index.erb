@@ -75,9 +75,23 @@
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
+<div id="welcomeModal" class="reveal-modal medium text-center" data-reveal data-options="animation: none;">
+  <h2><%= @board.title %></h2>
+  <span id="welcome-info"><%= @board.url %></span><br><br>
+  <p>This is a unique code for your whiteboard. Share it with others so that they may join!</p>
+  <button class="medium button" id="welcome-button">Got it!</button>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 <canvas class="main-section" id="draw" resize="true"></canvas>
 <div id="canvas-logo">Slateless</div>
 
 <script src="/js/paper-full.min.js"></script>
 <script src="/js/options.js", canvas="draw"></script>
 <script src="/js/draw.js", type="text/paperscript", canvas="draw"></script>
+
+<% if flash[:new_board] %>
+  <script>
+    $(document).ready(function(){$('#welcomeModal').foundation('reveal', 'open')});
+  </script>
+<% end %>

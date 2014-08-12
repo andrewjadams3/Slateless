@@ -8115,11 +8115,16 @@ th.hide-for-touch {
 }
 
 /* line 48, ../scss/app.scss */
+#welcome-info {
+  font-size: 3em;
+}
+
+/* line 52, ../scss/app.scss */
 canvas {
   cursor: none;
 }
 
-/* line 52, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 #canvas-logo {
   padding: 2px;
   margin: 30px;
@@ -8133,24 +8138,34 @@ canvas {
 }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 66, ../scss/app.scss */
+  /* line 70, ../scss/app.scss */
   .hero #title {
+    font-size: 4em;
+  }
+
+  /* line 72, ../scss/app.scss */
+  #welcome-info {
     font-size: 4em;
   }
 }
 @media only screen and (min-width: 55em) {
-  /* line 71, ../scss/app.scss */
+  /* line 78, ../scss/app.scss */
   .content {
     padding: 40px 0;
   }
 
-  /* line 73, ../scss/app.scss */
+  /* line 80, ../scss/app.scss */
   .hero .row.buttons {
     max-width: 1024px;
     margin: auto;
   }
-  /* line 74, ../scss/app.scss */
+  /* line 81, ../scss/app.scss */
   .hero #title {
+    font-size: 6em;
+  }
+
+  /* line 83, ../scss/app.scss */
+  #welcome-info {
     font-size: 6em;
   }
 }
